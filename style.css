@@ -1,0 +1,42 @@
+.box {
+    position: absolute;
+    background-color: brown;
+}
+
+.bot {
+    position: absolute;
+    background-color: red;
+}
+
+.shield {
+    filter: grayscale(1);
+}
+
+.bar {
+    translate:-35px -20px;
+    width: 100px;
+    height: 10px;
+    background-color: gray;
+}
+
+.ibar {
+    height: 10px;
+    background-color: green;
+    z-index: 1;
+}
+
+.small {
+    position: absolute;
+    width: 10px;
+    height: 10px;
+    background-color: blue;
+    border-radius: 10px;
+}
+
+.big {
+    position: absolute;
+    width: 50px;
+    height: 50px;
+    background-color: blue;
+    border-radius: 50px;
+}
