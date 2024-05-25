@@ -123,7 +123,7 @@ export default class Game {
             bot.cooldowns.pellet = 0;
         }
 
-        bot.actionTime();
+        bot.actionTime(this);
         switch (bot.attack) {
             case "pellet":
                 this.shootPellet(bot);
