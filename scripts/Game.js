@@ -1,5 +1,6 @@
 import Bot from "./Bot.js";
 import Example from "./Bot1/Example.js";
+import Bot2 from "./Bot2/Bot2.js";
 import Box from "./Box.js";
 import CollisionHandler from "./CollisionHandler.js";
 import Pellet from "./Pellet.js";
@@ -32,8 +33,10 @@ export default class Game {
         /** @type {Bot[]} */
         this.bots = [
             new Example(),
-            new Example(),
+            new Bot2(),
         ];
+        this.bots[0].position = new Vector(300, 400); 
+        this.bots[1].position = new Vector(1200, 400); 
         this.pellets = [];
         this.colHandler = new CollisionHandler();
         this.colHandler.addBox(
