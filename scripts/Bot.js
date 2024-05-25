@@ -11,7 +11,7 @@ export default class Bot {
             bash: 0,
             shield: 0,
         };
-        this.shieldLast = 0;
+        this.shieldLast = -1;
         this.pellets = 0;
         this.health = 100;
         this.resetSubFlags(null);
@@ -44,10 +44,8 @@ export default class Bot {
     reduceCooldowns() {
         this.cooldowns.pellet--;
         this.cooldowns.bash--;
-        if (this.shieldLast <= 0)
-            this.cooldowns.shield--;
-        else
-            this.shieldLast--;
+        this.cooldowns.shield--;
+        this.shieldLast--;
     }
 
     canBash() {
@@ -108,7 +106,7 @@ export default class Bot {
     activateShield() {
         if (!this.canShield())
             return;
-        this.shieldLast = Game.settings.shieldLast+1;
+        this.shieldLast = Game.settings.shieldLast;
         this.cooldowns.shield = Game.settings.shieldCooldown;
         this.shield = true;
     }
