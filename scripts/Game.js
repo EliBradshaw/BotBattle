@@ -1,10 +1,10 @@
 import Bot from "./Bot.js";
-import Example from "./Bot1/Example.js";
-import Bot2 from "./Bot2/Bot2.js";
 import Box from "./Box.js";
 import CollisionHandler from "./CollisionHandler.js";
 import Pellet from "./Pellet.js";
 import Vector from "./Vector.js";
+import Bot2 from "./Bot2/Bot2.js";
+import Example from "./Bot1/Example.js";
 
 export default class Game {
     static settings = {

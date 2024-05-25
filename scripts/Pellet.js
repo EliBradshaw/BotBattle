@@ -25,8 +25,8 @@ export default class Pellet {
     move(game) {
         let bp = new Box(
             this.position.added(new Vector(-5, -5)),
-            10,
-            10
+            this.velocity.x,
+            this.velocity.y
         );
         for (let bot of game.bots) {
             if (bot == this.owner) continue;

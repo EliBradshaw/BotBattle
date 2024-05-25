@@ -6,7 +6,7 @@ export default class Bot2 extends Bot {
         this.test = 0;
     }   
     
-    actionTime() {
+    actionTime(board) {
         this.shootPellet(this.test);
         this.test += 0.2;
         if (this.canJump)
