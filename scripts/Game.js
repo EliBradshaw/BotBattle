@@ -1,10 +1,10 @@
 import Bot from "./Bot.js";
+import Bot1 from "./Bot1/Bot1.js";
+import Example from "./Bot2/Example.js";
 import Box from "./Box.js";
 import CollisionHandler from "./CollisionHandler.js";
 import Pellet from "./Pellet.js";
 import Vector from "./Vector.js";
-import Bot2 from "./Bot2/Bot2.js";
-import Example from "./Bot1/Example.js";
 
 export default class Game {
     static settings = {
@@ -32,8 +32,8 @@ export default class Game {
     constructor() {
         /** @type {Bot[]} */
         this.bots = [
+            new Bot1(),
             new Example(),
-            new Bot2(),
         ];
         this.bots[0].position = new Vector(300, 400); 
         this.bots[1].position = new Vector(1200, 400); 
@@ -114,7 +114,7 @@ export default class Game {
         this.pellets = newPellets;
     }
 
-    processActions(bot) {
+    processActions(bot, postAction = false) {
         bot.velocity.y += 0.5;
         bot.resetSubFlags(this);
         bot.reduceCooldowns();
@@ -122,8 +122,8 @@ export default class Game {
             bot.pellets++;
             bot.cooldowns.pellet = 0;
         }
-
-        bot.actionTime(this);
+        if (!postAction)
+            bot.actionTime(this);
         switch (bot.attack) {
             case "pellet":
                 this.shootPellet(bot);
