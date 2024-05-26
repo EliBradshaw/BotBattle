@@ -116,14 +116,15 @@ export default class Game {
 
     processActions(bot, postAction = false) {
         bot.velocity.y += 0.5;
-        bot.resetSubFlags(this);
-        bot.reduceCooldowns();
         if (bot.cooldowns.pellet <= 0) {
             bot.pellets++;
             bot.cooldowns.pellet = 0;
         }
-        if (!postAction)
+        if (!postAction) {
+            bot.resetSubFlags(this);
+            bot.reduceCooldowns();
             bot.actionTime(this);
+        }
         switch (bot.attack) {
             case "pellet":
                 this.shootPellet(bot);
