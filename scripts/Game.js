@@ -1,6 +1,6 @@
 import Bot from "./Bot.js";
-import Bot1 from "./Bot1/Bot1.js";
-import Example from "./Bot2/Example.js";
+import Example from "./Bot1/Example.js";
+import Bot2 from "./Bot2/Bot2.js";
 import Box from "./Box.js";
 import CollisionHandler from "./CollisionHandler.js";
 import Pellet from "./Pellet.js";
@@ -32,8 +32,8 @@ export default class Game {
     constructor() {
         /** @type {Bot[]} */
         this.bots = [
-            new Bot1(),
             new Example(),
+            new Bot2(),
         ];
         this.bots[0].position = new Vector(300, 400); 
         this.bots[1].position = new Vector(1200, 400); 
